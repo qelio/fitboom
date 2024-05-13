@@ -21,7 +21,6 @@ public class RecoveryPasswordActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.primary_color));
         ActionBar actionBar = getSupportActionBar();
-        String text1;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.color.primary_color));
         actionBar.setTitle("Восстановление пароля");
