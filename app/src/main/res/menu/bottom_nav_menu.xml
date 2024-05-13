@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_fragment_home"
+        android:title="Дом" />
+
+    <item
+        android:id="@+id/navigation_meal_plan"
+        android:icon="@drawable/ic_fragment_meal_plan"
+        android:title="Питание" />
+
+    <item
+        android:id="@+id/navigation_workout"
+        android:icon="@drawable/ic_fragment_workout"
+        android:title="Тренировка" />
+    <item
+        android:id="@+id/navigation_report"
+        android:icon="@drawable/ic_fragment_report"
+        android:title="Отчёт" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_fragment_profile"
+        android:title="Профиль" />
+
+
+</menu>

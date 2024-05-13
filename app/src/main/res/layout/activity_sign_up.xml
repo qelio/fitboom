@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9D9D9"
+    tools:context=".SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:src="@drawable/logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:orientation="horizontal">
+            <ScrollView
+                android:id="@+id/registry_scroll"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:text="Имя" />
+                <EditText
+                    android:id="@+id/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#000"
+                    android:background="@drawable/registry_login"
+                    android:padding="15dp"
+                    android:hint="Введите имя..."
+                    android:layout_marginBottom="5dp"
+                    android:inputType="text" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:text="Фамилия" />
+                <EditText
+                    android:id="@+id/user_surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#000"
+                    android:background="@drawable/registry_login"
+                    android:padding="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="Введите фамилию..."
+                    android:inputType="text" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:text="Электронная почта" />
+                <EditText
+                    android:id="@+id/user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#000"
+                    android:background="@drawable/registry_login"
+                    android:padding="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="Введите электронную почту..."
+                    android:inputType="textEmailAddress" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:text="Придумайте пароль" />
+                <EditText
+                    android:id="@+id/user_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#000"
+                    android:background="@drawable/registry_login"
+                    android:padding="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="Введите пароль..."
+                    android:inputType="textPassword" />
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_marginLeft="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="8pt"
+                    android:textStyle="bold"
+                    android:text="Подтвердите пароль" />
+                <EditText
+                    android:id="@+id/user_password_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#000"
+                    android:background="@drawable/registry_login"
+                    android:padding="15dp"
+                    android:hint="Введите пароль повторно..."
+                    android:layout_marginBottom="10dp"
+                    android:inputType="textPassword" />
+                <Button
+                    android:id="@+id/registryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#ACDA20"
+                    android:textColor="#fff"
+                    android:padding="15dp"
+                    android:text="Зарегистрироваться" />
+
+
+            </LinearLayout>
+            </ScrollView>
+            <LinearLayout
+                android:id="@+id/loading_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:orientation="horizontal">
+                <ProgressBar
+                    android:id="@+id/progress_linear3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:indeterminateDrawable="@drawable/spinner_progress"
+                    android:indeterminateOnly="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
