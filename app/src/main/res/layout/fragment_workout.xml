@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D9D9D9"
+    android:orientation="vertical"
     tools:context=".fragments.WorkoutFragment">
 
 
@@ -28,6 +29,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/whole_body"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -62,6 +64,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/abs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -93,6 +96,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/legs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -124,6 +128,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/buttocks"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="3dp"
@@ -178,6 +183,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -190,6 +196,7 @@
                                 android:text="1-й День" />
 
                             <TextView
+                                android:id="@+id/day_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -202,6 +209,7 @@
                                 android:text="2-й День" />
 
                             <TextView
+                                android:id="@+id/day_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -222,6 +230,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_4"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -234,6 +243,7 @@
                                 android:text="4-й День" />
 
                             <TextView
+                                android:id="@+id/day_5"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -246,6 +256,7 @@
                                 android:text="5-й День" />
 
                             <TextView
+                                android:id="@+id/day_6"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -266,6 +277,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_7"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -278,6 +290,7 @@
                                 android:text="7-й День" />
 
                             <TextView
+                                android:id="@+id/day_8"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -290,6 +303,7 @@
                                 android:text="8-й День" />
 
                             <TextView
+                                android:id="@+id/day_9"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -310,6 +324,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_10"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -322,6 +337,7 @@
                                 android:text="10-й День" />
 
                             <TextView
+                                android:id="@+id/day_11"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -334,6 +350,7 @@
                                 android:text="11-й День" />
 
                             <TextView
+                                android:id="@+id/day_12"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -354,6 +371,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_13"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -366,6 +384,7 @@
                                 android:text="13-й День" />
 
                             <TextView
+                                android:id="@+id/day_14"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -378,6 +397,7 @@
                                 android:text="14-й День" />
 
                             <TextView
+                                android:id="@+id/day_15"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -398,6 +418,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_16"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -410,6 +431,7 @@
                                 android:text="16-й День" />
 
                             <TextView
+                                android:id="@+id/day_17"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -422,6 +444,7 @@
                                 android:text="17-й День" />
 
                             <TextView
+                                android:id="@+id/day_18"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -442,6 +465,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_19"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -454,6 +478,7 @@
                                 android:text="19-й День" />
 
                             <TextView
+                                android:id="@+id/day_20"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -466,6 +491,7 @@
                                 android:text="20-й День" />
 
                             <TextView
+                                android:id="@+id/day_21"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -486,6 +512,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_22"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -498,6 +525,7 @@
                                 android:text="22-й День" />
 
                             <TextView
+                                android:id="@+id/day_23"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -510,6 +538,7 @@
                                 android:text="23-й День" />
 
                             <TextView
+                                android:id="@+id/day_24"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -530,6 +559,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_25"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -542,6 +572,7 @@
                                 android:text="25-й День" />
 
                             <TextView
+                                android:id="@+id/day_26"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -554,6 +585,7 @@
                                 android:text="26-й День" />
 
                             <TextView
+                                android:id="@+id/day_27"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -574,6 +606,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/day_28"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -586,6 +619,7 @@
                             android:text="28-й День" />
 
                         <TextView
+                            android:id="@+id/day_29"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -598,6 +632,7 @@
                             android:text="29-й День" />
 
                         <TextView
+                            android:id="@+id/day_30"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -615,9 +650,11 @@
                             android:layout_height="match_parent"
                             android:layout_marginTop="3dp"
                             android:layout_marginBottom="3dp"
+                            android:visibility="gone"
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/day_31"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -630,6 +667,7 @@
                                 android:text="31-й День" />
 
                             <TextView
+                                android:id="@+id/day_32"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -643,6 +681,7 @@
                                 android:text="32-й День" />
 
                             <TextView
+                                android:id="@+id/day_33"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -666,6 +705,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.4"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_marginBottom="45dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary_color"
+                android:text="Начать" />
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
