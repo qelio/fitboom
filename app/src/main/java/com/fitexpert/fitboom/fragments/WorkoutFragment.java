@@ -29,7 +29,6 @@ public class WorkoutFragment extends Fragment {
         LinearLayout abs = (LinearLayout) v.findViewById(R.id.abs);
         LinearLayout legs = (LinearLayout) v.findViewById(R.id.legs);
         LinearLayout buttocks = (LinearLayout) v.findViewById(R.id.buttocks);
-
         // Кнопки выбора дней:
         TextView day_1 = (TextView) v.findViewById(R.id.day_1);
         TextView day_2 = (TextView) v.findViewById(R.id.day_2);
