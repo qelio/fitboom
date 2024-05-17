@@ -30,9 +30,29 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/type_trenning"
-                    android:orientation="vertical"></LinearLayout>
+                    android:layout_margin="3dp"
+                    android:padding="5dp"
+                    android:background="@drawable/type_trenning_active"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:src="@drawable/type_trenning_1" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:text="Всё тело" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -44,9 +64,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
+                    android:padding="5dp"
                     android:background="@drawable/type_trenning"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:src="@drawable/type_trenning_2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:text="Пресс" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -58,9 +95,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
+                    android:padding="5dp"
                     android:background="@drawable/type_trenning"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:src="@drawable/type_trenning_3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:text="Ноги" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -72,9 +126,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
+                    android:padding="5dp"
                     android:background="@drawable/type_trenning"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:src="@drawable/type_trenning_4" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/black"
+                        android:text="Ягодицы" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -82,7 +153,514 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="1-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="2-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="3-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="4-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="5-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="6-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="7-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="8-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="9-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="10-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="11-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="12-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="13-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="14-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="15-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="16-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="17-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="18-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="19-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="20-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="21-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="22-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="23-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="24-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="25-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="26-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="27-й День" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/day_primary"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_margin="3dp"
+                            android:text="28-й День" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/day_primary"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_margin="3dp"
+                            android:text="29-й День" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/day_primary"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_margin="3dp"
+                            android:text="30-й День" />
+
+                    </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:text="31-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:visibility="invisible"
+                                android:text="32-й День" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/day_primary"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="3dp"
+                                android:visibility="invisible"
+                                android:text="33-й День" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
