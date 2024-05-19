@@ -62,6 +62,9 @@ public class WorkoutFragment extends Fragment {
         TextView day_30 = (TextView) v.findViewById(R.id.day_30);
         TextView day_31 = (TextView) v.findViewById(R.id.day_31);
         whole_body.setBackground(v.getContext().getDrawable(R.drawable.type_trenning_active));
+        abs.setBackground(v.getContext().getDrawable(R.drawable.type_trenning));
+        legs.setBackground(v.getContext().getDrawable(R.drawable.type_trenning));
+        buttocks.setBackground(v.getContext().getDrawable(R.drawable.type_trenning));
         whole_body.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
