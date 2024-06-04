@@ -20,10 +20,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fitexpert.fitboom.CurrentTrenningActivivty;
 import com.fitexpert.fitboom.DailyTrenning;
 import com.fitexpert.fitboom.FitUser;
 import com.fitexpert.fitboom.MainActivity;
@@ -69,6 +71,7 @@ public class WorkoutFragment extends Fragment {
         LinearLayout buttocks = (LinearLayout) v.findViewById(R.id.buttocks);
         linear_layout_days = (LinearLayout) v.findViewById(R.id.linear_layout_days);
         linear_layout_loading = (LinearLayout) v.findViewById(R.id.linear_layout_loading);
+        Button start_trenning = (Button) v.findViewById(R.id.start_trenning);
         // Кнопки выбора дней:
         days[1] = (TextView) v.findViewById(R.id.day_1);
         days[2] = (TextView) v.findViewById(R.id.day_2);
@@ -137,6 +140,14 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
+        start_trenning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), currunet_date.getDay() + 2, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), currunet_date.getDay() + 2, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
         abs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,6 +205,347 @@ public class WorkoutFragment extends Fragment {
                 for (int i = 1; i <= currunet_date.getDay() + 2; i++) {
                     new GetDayInfo(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), i, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
                 }
+            }
+        });
+
+        days[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 1;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 2;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 3;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 4;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 5;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[6].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 6;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[7].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 7;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[8].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 8;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[9].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 9;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[10].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 10;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[11].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 11;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[12].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 12;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[13].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 13;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[14].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 14;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[15].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 15;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[16].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 16;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[17].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 17;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[18].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 18;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[19].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 19;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[20].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 20;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[21].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 21;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[22].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 22;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[23].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 23;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[24].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 24;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[25].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 25;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[26].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 26;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[27].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 27;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[28].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 28;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[29].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 29;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[30].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 30;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            }
+        });
+
+        days[31].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                int this_day = 31;
+                new SetDayTrenning(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+                new GoToTrenningActivity(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), this_day, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
             }
         });
         return v;
@@ -290,6 +642,24 @@ public class WorkoutFragment extends Fragment {
                     dailyTrenning.setExercise_4(jsonObject1.getInt("exercise_4"));
                     dailyTrenning.setExercise_5(jsonObject1.getInt("exercise_5"));
                     dailyTrenning.setExercise_6(jsonObject1.getInt("exercise_6"));
+                    dailyTrenning.setExercise_id_1(jsonObject1.getInt("exercise_id_1"));
+                    dailyTrenning.setExercise_id_2(jsonObject1.getInt("exercise_id_2"));
+                    dailyTrenning.setExercise_id_3(jsonObject1.getInt("exercise_id_3"));
+                    dailyTrenning.setExercise_id_4(jsonObject1.getInt("exercise_id_4"));
+                    dailyTrenning.setExercise_id_5(jsonObject1.getInt("exercise_id_5"));
+                    dailyTrenning.setExercise_id_6(jsonObject1.getInt("exercise_id_6"));
+                    dailyTrenning.setExercise_1_param(jsonObject1.getInt("exercise_1_param"));
+                    dailyTrenning.setExercise_2_param(jsonObject1.getInt("exercise_2_param"));
+                    dailyTrenning.setExercise_3_param(jsonObject1.getInt("exercise_3_param"));
+                    dailyTrenning.setExercise_4_param(jsonObject1.getInt("exercise_4_param"));
+                    dailyTrenning.setExercise_5_param(jsonObject1.getInt("exercise_5_param"));
+                    dailyTrenning.setExercise_6_param(jsonObject1.getInt("exercise_6_param"));
+                    dailyTrenning.setExercise_1_type(jsonObject1.getString("exercise_1_type"));
+                    dailyTrenning.setExercise_2_type(jsonObject1.getString("exercise_2_type"));
+                    dailyTrenning.setExercise_3_type(jsonObject1.getString("exercise_3_type"));
+                    dailyTrenning.setExercise_4_type(jsonObject1.getString("exercise_4_type"));
+                    dailyTrenning.setExercise_5_type(jsonObject1.getString("exercise_5_type"));
+                    dailyTrenning.setExercise_6_type(jsonObject1.getString("exercise_6_type"));
                     dailyTrenning.setTrenning_date(jsonObject1.getString("trenning_date"));
                     int count_exercises = dailyTrenning.getCountExercises();
                     Log.d("DATE_CHECK", day + " " + Integer.toString(current_date.getDay() + 2));
@@ -339,5 +709,194 @@ public class WorkoutFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
+
+    }
+
+    private class GoToTrenningActivity extends AsyncTask<String, String, String> {
+        String email, password;
+        int day, month, year, trenning_type;
+        Context context;
+        public GoToTrenningActivity(Context context, String email, String password, int day, int month, int year, int trenning_type) {
+            this.context = context;
+            this.email = email;
+            this.password = password;
+            this.day = day;
+            this.month = month;
+            this.year = year;
+            this.trenning_type = trenning_type;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... url1) {
+            String current = "";
+            String JSON_URL = url1[0] + "?day=" + day + "&month=" + month + "&year=" + year + "&trenning_type=" + trenning_type;
+            try {
+                URL url;
+                HttpURLConnection urlConnection = null;
+                try {
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoInput(true);
+                    urlConnection.setDoOutput(true);
+                    urlConnection.connect();
+                    String request = "email=" + email + "&password=" + password;
+                    urlConnection.getOutputStream().write((request).getBytes());
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader isr = new InputStreamReader(in);
+                    int data = isr.read();
+                    while (data != -1) {
+                        current += (char) data;
+                        data = isr.read();
+                    }
+                    return current;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return current;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("daily_trenning");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                Date current_date = new Date();
+                if (jsonObject1.getInt("code") == 100) {
+                    DailyTrenning dailyTrenning = new DailyTrenning();
+                    dailyTrenning.setId(jsonObject1.getInt("id"));
+                    dailyTrenning.setUser_id(jsonObject1.getInt("user_id"));
+                    dailyTrenning.setTrenning_type(jsonObject1.getInt("trenning_type"));
+                    dailyTrenning.setDate_day(jsonObject1.getInt("date_day"));
+                    dailyTrenning.setDate_month(jsonObject1.getInt("date_month"));
+                    dailyTrenning.setDate_year(jsonObject1.getInt("date_year"));
+                    dailyTrenning.setExercise_1(jsonObject1.getInt("exercise_1"));
+                    dailyTrenning.setExercise_2(jsonObject1.getInt("exercise_2"));
+                    dailyTrenning.setExercise_3(jsonObject1.getInt("exercise_3"));
+                    dailyTrenning.setExercise_4(jsonObject1.getInt("exercise_4"));
+                    dailyTrenning.setExercise_5(jsonObject1.getInt("exercise_5"));
+                    dailyTrenning.setExercise_6(jsonObject1.getInt("exercise_6"));
+                    dailyTrenning.setExercise_id_1(jsonObject1.getInt("exercise_id_1"));
+                    dailyTrenning.setExercise_id_2(jsonObject1.getInt("exercise_id_2"));
+                    dailyTrenning.setExercise_id_3(jsonObject1.getInt("exercise_id_3"));
+                    dailyTrenning.setExercise_id_4(jsonObject1.getInt("exercise_id_4"));
+                    dailyTrenning.setExercise_id_5(jsonObject1.getInt("exercise_id_5"));
+                    dailyTrenning.setExercise_id_6(jsonObject1.getInt("exercise_id_6"));
+                    dailyTrenning.setExercise_1_param(jsonObject1.getInt("exercise_1_param"));
+                    dailyTrenning.setExercise_2_param(jsonObject1.getInt("exercise_2_param"));
+                    dailyTrenning.setExercise_3_param(jsonObject1.getInt("exercise_3_param"));
+                    dailyTrenning.setExercise_4_param(jsonObject1.getInt("exercise_4_param"));
+                    dailyTrenning.setExercise_5_param(jsonObject1.getInt("exercise_5_param"));
+                    dailyTrenning.setExercise_6_param(jsonObject1.getInt("exercise_6_param"));
+                    dailyTrenning.setExercise_1_type(jsonObject1.getString("exercise_1_type"));
+                    dailyTrenning.setExercise_2_type(jsonObject1.getString("exercise_2_type"));
+                    dailyTrenning.setExercise_3_type(jsonObject1.getString("exercise_3_type"));
+                    dailyTrenning.setExercise_4_type(jsonObject1.getString("exercise_4_type"));
+                    dailyTrenning.setExercise_5_type(jsonObject1.getString("exercise_5_type"));
+                    dailyTrenning.setExercise_6_type(jsonObject1.getString("exercise_6_type"));
+                    dailyTrenning.setTrenning_date(jsonObject1.getString("trenning_date"));
+                    Intent current_trenning_activity = new Intent(getActivity(), CurrentTrenningActivivty.class);
+                    current_trenning_activity.putExtra("daily_trenning", dailyTrenning);
+                    startActivity(current_trenning_activity);
+                }
+                if (jsonObject1.getInt("code") == 101) {
+                    Intent auth_activity = new Intent(getActivity(), SplashActivity.class);
+                    startActivity(auth_activity);
+                    getActivity().finish();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
+    private class SetDayTrenning extends AsyncTask<String, String, String> {
+        String email, password;
+        int day, month, year, trenning_type;
+        Context context;
+        public SetDayTrenning(Context context, String email, String password, int day, int month, int year, int trenning_type) {
+            this.context = context;
+            this.email = email;
+            this.password = password;
+            this.day = day;
+            this.month = month;
+            this.year = year;
+            this.trenning_type = trenning_type;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... url1) {
+            String current = "";
+            String JSON_URL = url1[0] + "?day=" + day + "&month=" + month + "&year=" + year + "&trenning_type=" + trenning_type;
+            try {
+                URL url;
+                HttpURLConnection urlConnection = null;
+                try {
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoInput(true);
+                    urlConnection.setDoOutput(true);
+                    urlConnection.connect();
+                    String request = "email=" + email + "&password=" + password;
+                    urlConnection.getOutputStream().write((request).getBytes());
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader isr = new InputStreamReader(in);
+                    int data = isr.read();
+                    while (data != -1) {
+                        current += (char) data;
+                        data = isr.read();
+                    }
+                    return current;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return current;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("daily_trenning");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 }

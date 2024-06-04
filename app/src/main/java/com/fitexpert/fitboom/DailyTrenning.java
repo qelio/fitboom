@@ -1,6 +1,10 @@
 package com.fitexpert.fitboom;
 
-public class DailyTrenning {
+import java.io.Serializable;
+
+public class DailyTrenning implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     int id, user_id, trenning_type, date_day, date_month, date_year;
     int exercise_1, exercise_2, exercise_3, exercise_4, exercise_5, exercise_6;
     int exercise_id_1, exercise_id_2, exercise_id_3, exercise_id_4, exercise_id_5, exercise_id_6;
