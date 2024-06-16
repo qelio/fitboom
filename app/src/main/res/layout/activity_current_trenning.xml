@@ -584,7 +584,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="8pt"
-            android:text="Вашему телу и мышцам нужно отдохнуть!\nДо встречи завтра!" />
+            android:text="Вашему телу и мышцам нужно отдохнуть!\nДо встречи в другой день!" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/start_trenning_layout"
@@ -676,7 +676,7 @@
                     android:gravity="center"
                     android:text="Вашему телу и мышцам нужно отдохнуть!\nДо встречи завтра!"
                     android:textColor="@color/black"
-                    android:textSize="8pt"
+                    android:textSize="9pt"
                     android:textStyle="bold" />
 
                 <LinearLayout

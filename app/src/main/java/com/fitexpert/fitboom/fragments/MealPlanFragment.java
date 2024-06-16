@@ -17,6 +17,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fitexpert.fitboom.CurrentTrenningActivivty;
 import com.fitexpert.fitboom.DailyExercise;
@@ -35,6 +36,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 
 public class MealPlanFragment extends Fragment {
     SharedPreferences settings_profile;
@@ -77,10 +79,36 @@ public class MealPlanFragment extends Fragment {
         days[29] = (TextView) v.findViewById(R.id.day_29);
         days[30] = (TextView) v.findViewById(R.id.day_30);
         days[31] = (TextView) v.findViewById(R.id.day_31);
+        Date current_date = new Date();
+        for (int i = 1; i <= current_date.getDate(); i++) {
+            days[i].setBackground(getContext().getDrawable(R.drawable.daily_trenning_true));
+            days[i].setPadding(25, 25, 25, 25);
+        }
+        days[current_date.getDate()].setBackground(getContext().getDrawable(R.drawable.daily_trenning_current));
         linear_layout_days = (LinearLayout) v.findViewById(R.id.linear_layout_days);
         linear_layout_loading = (LinearLayout) v.findViewById(R.id.linear_layout_loading);
         start_marathon = (TextView) v.findViewById(R.id.start_marathon);
         shopping_list = (TextView) v.findViewById(R.id.shopping_list);
+        start_marathon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                Toast toast = Toast.makeText(getContext(),
+                        "Марафон пока не начался!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+        shopping_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                Toast toast = Toast.makeText(getContext(),
+                        "Данный раздел находится в разработке!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
         days[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -119,7 +119,6 @@ public class WorkoutFragment extends Fragment {
         for (int i = 1; i <= currunet_date.getDate(); i++) {
             new GetDayInfo(v.getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), i, currunet_date.getMonth() + 1, currunet_date.getYear() + 1900, 1).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
         }
-
         whole_body.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

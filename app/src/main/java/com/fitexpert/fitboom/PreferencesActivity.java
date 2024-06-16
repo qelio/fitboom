@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,6 +38,7 @@ import java.util.Collections;
 
 public class PreferencesActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -243,31 +245,74 @@ public class PreferencesActivity extends AppCompatActivity {
         LinearLayout step_first = (LinearLayout) findViewById(R.id.step_first);
         LinearLayout step_second = (LinearLayout) findViewById(R.id.step_second);
         LinearLayout loading_layout = (LinearLayout) findViewById(R.id.loading_layout);
+        if (!fitUser.getGender().isEmpty()) {
+            if (fitUser.getGender().equals("Мужской")){
+                spinner_gender.setSelection(0);
+            }
+            else {
+                spinner_gender.setSelection(1);
+            }
+            user_age.setText(Integer.toString(fitUser.getAge()));
+            user_current_weight.setText(Double.toString(fitUser.getCurrent_weight()));
+            user_desired_weight.setText(Double.toString(fitUser.getDesired_weight()));
+            user_growth.setText(Double.toString(fitUser.getGrowth()));
+            user_monthly_budget.setText(Double.toString(fitUser.getMonthly_budget()));
+            next_button_first.setText("Сохранить изменения");
+        }
         next_button_first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                if (user_age.getText().toString().equals("") || user_current_weight.getText().toString().equals("") || user_desired_weight.getText().toString().equals("") || user_growth.getText().toString().equals("") || user_monthly_budget.getText().toString().equals("")) {
-                    if (user_age.getText().toString().equals("")) {
-                        user_age.setError("Поле не может быть пустым!");
+                if (fitUser.getGender().isEmpty()) {
+                    if (user_age.getText().toString().equals("") || user_current_weight.getText().toString().equals("") || user_desired_weight.getText().toString().equals("") || user_growth.getText().toString().equals("") || user_monthly_budget.getText().toString().equals("")) {
+                        if (user_age.getText().toString().equals("")) {
+                            user_age.setError("Поле не может быть пустым!");
+                        }
+                        if (user_current_weight.getText().toString().equals("")) {
+                            user_current_weight.setError("Поле не может быть пустым!");
+                        }
+                        if (user_desired_weight.getText().toString().equals("")) {
+                            user_desired_weight.setError("Поле не может быть пустым!");
+                        }
+                        if (user_growth.getText().toString().equals("")) {
+                            user_growth.setError("Поле не может быть пустым!");
+                        }
+                        if (user_monthly_budget.getText().toString().equals("")) {
+                            user_monthly_budget.setError("Поле не может быть пустым!");
+                        }
+                        return;
                     }
-                    if (user_current_weight.getText().toString().equals("")) {
-                        user_current_weight.setError("Поле не может быть пустым!");
-                    }
-                    if (user_desired_weight.getText().toString().equals("")) {
-                        user_desired_weight.setError("Поле не может быть пустым!");
-                    }
-                    if (user_growth.getText().toString().equals("")) {
-                        user_growth.setError("Поле не может быть пустым!");
-                    }
-                    if (user_monthly_budget.getText().toString().equals("")) {
-                        user_monthly_budget.setError("Поле не может быть пустым!");
-                    }
-                    return;
+                    step_first.setVisibility(View.GONE);
+                    step_second.setVisibility(View.VISIBLE);
                 }
-                step_first.setVisibility(View.GONE);
-                step_second.setVisibility(View.VISIBLE);
+                else {
+                    if (user_age.getText().toString().equals("") || user_current_weight.getText().toString().equals("") || user_desired_weight.getText().toString().equals("") || user_growth.getText().toString().equals("") || user_monthly_budget.getText().toString().equals("")) {
+                        if (user_age.getText().toString().equals("")) {
+                            user_age.setError("Поле не может быть пустым!");
+                        }
+                        if (user_current_weight.getText().toString().equals("")) {
+                            user_current_weight.setError("Поле не может быть пустым!");
+                        }
+                        if (user_desired_weight.getText().toString().equals("")) {
+                            user_desired_weight.setError("Поле не может быть пустым!");
+                        }
+                        if (user_growth.getText().toString().equals("")) {
+                            user_growth.setError("Поле не может быть пустым!");
+                        }
+                        if (user_monthly_budget.getText().toString().equals("")) {
+                            user_monthly_budget.setError("Поле не может быть пустым!");
+                        }
+                        return;
+                    }
+                    fitUser.setGender(spinner_gender.getSelectedItem().toString());
+                    fitUser.setAge(Integer.parseInt(user_age.getText().toString()));
+                    fitUser.setDesired_weight(Double.parseDouble(user_desired_weight.getText().toString()));
+                    fitUser.setCurrent_weight(Double.parseDouble(user_current_weight.getText().toString()));
+                    fitUser.setGrowth(Double.parseDouble(user_growth.getText().toString()));
+                    fitUser.setMonthly_budget(Double.parseDouble(user_monthly_budget.getText().toString()));
+                    new EditUserAuth(fitUser).execute("https://testmatica.ru/fitboom_api/edit_values.php");
+                }
             }
         });
         next_button_second.setOnClickListener(new View.OnClickListener() {
@@ -278,6 +323,80 @@ public class PreferencesActivity extends AppCompatActivity {
                 new EditUser(fitUser, spinner_gender.getSelectedItem().toString(),Integer.parseInt(user_age.getText().toString()), Double.parseDouble(user_current_weight.getText().toString()), Double.parseDouble(user_desired_weight.getText().toString()), Double.parseDouble(user_growth.getText().toString()), Double.parseDouble(user_monthly_budget.getText().toString()), intolerance.getText().toString(), favorite_foods.getText().toString(), unloved_foods.getText().toString(), step_second, loading_layout).execute("https://testmatica.ru/fitboom_api/edit_values.php");
             }
         });
+    }
+
+    // Регистрация нового пользователя
+    private class EditUserAuth extends AsyncTask<String, String, String> {
+        FitUser fitUser;
+
+        public EditUserAuth(FitUser fitUser) {
+            this.fitUser = fitUser;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        @Override
+        protected String doInBackground(String... url1){
+            String current = "";
+            String JSON_URL = url1[0];
+            try{
+                URL url;
+                HttpURLConnection urlConnection = null;
+                try{
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoInput(true);
+                    urlConnection.setDoOutput(true);
+                    urlConnection.connect();
+                    String request = "id=" + fitUser.getId() + "&email=" + fitUser.getEmail() + "&password=" + fitUser.getPassword() + "&first_name=" + fitUser.getFirst_name() + "&last_name=" + fitUser.getLast_name() + "&gender=" + fitUser.getGender() + "&age=" + fitUser.getAge() + "&current_weight=" + fitUser.getCurrent_weight() + "&desired_weight=" + fitUser.getDesired_weight() + "&growth=" + fitUser.getGrowth() + "&monthly_budget=" + fitUser.getMonthly_budget() + "&device_info=" + fitUser.getDevice_info() + "&intolerance=" + fitUser.getIntolerance() + "&favorite_foods=" + fitUser.getFavorite_foods() + "&unloved_foods=" + fitUser.getUnloved_foods();
+                    urlConnection.getOutputStream().write((request).getBytes());
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader isr = new InputStreamReader(in);
+                    int data = isr.read();
+                    while(data != - 1){
+                        current += (char) data;
+                        data = isr.read();
+                    }
+                    return current;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally {
+                    if (urlConnection != null){
+                        urlConnection.disconnect();
+                    }
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            return current;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("edit_values");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                if (jsonObject1.getInt("code") == 103) {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            s, Toast.LENGTH_SHORT);
+                    toast.show();
+                    Intent splashActivity = new Intent(PreferencesActivity.this, SplashActivity.class);
+                    splashActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(splashActivity);
+                }
+                if (jsonObject1.getInt("code") == 100) {
+                    finish();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // Регистрация нового пользователя

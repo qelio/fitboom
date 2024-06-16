@@ -9,7 +9,7 @@ public class FitUser implements Serializable {
     private String first_name, last_name, email, password, gender, device_info, intolerance, favorite_foods, unloved_foods;
 
     public FitUser () {
-        this.id = id;
+        this.id = 0;
         this.first_name = "Данные не переданы";
         this.last_name = "Данные не переданы";
         this.email = "Данные не переданы";

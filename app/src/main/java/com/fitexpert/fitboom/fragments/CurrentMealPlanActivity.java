@@ -27,6 +27,7 @@ public class CurrentMealPlanActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.color.primary_color));
+        actionBar.setTitle("План питания на день");
         Bundle arguments = getIntent().getExtras();
         breakfast_name = (TextView) findViewById(R.id.breakfast_name);
         breakfast_recept = (TextView) findViewById(R.id.breakfast_recept);

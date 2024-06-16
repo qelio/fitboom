@@ -4,16 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,6 +60,7 @@ public class CurrentTrenningActivivty extends AppCompatActivity {
 
     Button start_trenning;
     boolean flags[] = new boolean[7];
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +117,25 @@ public class CurrentTrenningActivivty extends AppCompatActivity {
         exercise_5_status = (LinearLayout) findViewById(R.id.exercise_5_status);
         exercise_6_status = (LinearLayout) findViewById(R.id.exercise_6_status);
 
+        if (dailyTrenning.getExercise_1() == 1) {
+            exercise_1_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+        if (dailyTrenning.getExercise_2() == 1) {
+            exercise_2_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+        if (dailyTrenning.getExercise_3() == 1) {
+            exercise_3_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+        if (dailyTrenning.getExercise_4() == 1) {
+            exercise_4_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+        if (dailyTrenning.getExercise_5() == 1) {
+            exercise_5_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+        if (dailyTrenning.getExercise_6() == 1) {
+            exercise_6_status.setBackground(getDrawable(R.drawable.type_trenning_true));
+        }
+
         exercise_1_title = (TextView) findViewById(R.id.exercise_1_title);
         exercise_2_title = (TextView) findViewById(R.id.exercise_2_title);
         exercise_3_title = (TextView) findViewById(R.id.exercise_3_title);
@@ -135,10 +162,36 @@ public class CurrentTrenningActivivty extends AppCompatActivity {
             new GetExercise(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getExercise_6_type(), dailyTrenning.getExercise_id_6(), dailyTrenning.getExercise_6_param(), dailyTrenning.getExercise_6(), exercise_6_title, exercise_6_param, exercise_6_linear, this, 5).execute("https://testmatica.ru/fitboom_api/current_exercise.php");
         }
         else {
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 1).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 2).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 3).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 4).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 5).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
+            new SetSuccessWeekendDay(settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), dailyTrenning.getDate_day(), dailyTrenning.getDate_month(), dailyTrenning.getDate_year(), dailyTrenning.getTrenning_type(), 6).execute("https://testmatica.ru/fitboom_api/update_daily_trenning.php");
             exercises_layout.setVisibility(View.GONE);
             loading_layout.setVisibility(View.GONE);
             weekend_layout.setVisibility(View.VISIBLE);
         }
+
+        current_exercise_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
+                v.startAnimation(anim);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(CurrentTrenningActivivty.this);
+                        alert.setTitle("Инструкция по выполнению");
+                        alert.setMessage(daily_exercise.getDescription());
+                        alert.setIcon(getDrawable(R.drawable.question_exercise));
+                        alert.setPositiveButton("Понятно", null);
+                        alert.show();
+                    }
+                }, 300);
+            }
+        });
 
         start_trenning.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -503,7 +556,7 @@ public class CurrentTrenningActivivty extends AppCompatActivity {
                 JSONObject jsonObject1 = jsonArray.getJSONObject(0);
                 if (jsonObject1.getInt("code") == 100) {
                     daily_exercise = new DailyExercise(jsonObject1.getString("title"), jsonObject1.getString("description"), type, param);
-                    current_exercise_title.setText(daily_exercise.getTitle());
+                    current_exercise_title.setText(Html.fromHtml(daily_exercise.getTitle() + "\uD83D\uDCA1"));
                     if (daily_exercise.getType().equals("cnt")) {
                         current_exercise_count.setVisibility(View.VISIBLE);
                         current_exercise_time.setVisibility(View.GONE);
@@ -639,4 +692,85 @@ public class CurrentTrenningActivivty extends AppCompatActivity {
         }
     }
 
+    private class SetSuccessWeekendDay extends AsyncTask<String, String, String> {
+        String email, password;
+        int day, month, year, trenning_type, edit_exercise;
+        public SetSuccessWeekendDay(String email, String password, int day, int month, int year, int trenning_type, int edit_exercise) {
+            this.email = email;
+            this.password = password;
+            this.day = day;
+            this.month = month;
+            this.year = year;
+            this.trenning_type = trenning_type;
+            this.edit_exercise = edit_exercise;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... url1) {
+            String current = "";
+            String JSON_URL = url1[0] + "?day=" + day + "&month=" + month + "&year=" + year + "&trenning_type=" + trenning_type  + "&edit_exercise=" + edit_exercise;
+            try {
+                URL url;
+                HttpURLConnection urlConnection = null;
+                try {
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    urlConnection.setRequestMethod("POST");
+                    urlConnection.setDoInput(true);
+                    urlConnection.setDoOutput(true);
+                    urlConnection.connect();
+                    String request = "email=" + email + "&password=" + password;
+                    urlConnection.getOutputStream().write((request).getBytes());
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader isr = new InputStreamReader(in);
+                    int data = isr.read();
+                    while (data != -1) {
+                        current += (char) data;
+                        data = isr.read();
+                    }
+                    return current;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return current;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("update_daily_trenning");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                if (jsonObject1.getInt("code") == 100) {
+
+                }
+                else if (jsonObject1.getInt("code") == 101) {
+                    Intent main_activity = new Intent(CurrentTrenningActivivty.this, SplashActivity.class);
+                    startActivity(main_activity);
+                    finish();
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Ошибка при обработке запроса!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

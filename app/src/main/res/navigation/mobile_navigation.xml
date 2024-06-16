@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.fitexpert.fitboom.fragments.HomeFragment"
-        android:label="Дом"
+        android:label="Добро пожаловать!"
         tools:layout="@layout/fragment_home" />
 
     <fragment
