@@ -301,4 +301,88 @@ public class DailyTrenning implements Serializable {
     public int getCountExercises() {
         return exercise_1 + exercise_2 + exercise_3 + exercise_4 + exercise_5 + exercise_6;
     }
+    public int getCurrentExercise() {
+        if (exercise_1 == 0){
+            return 1;
+        }
+        if (exercise_2 == 0){
+            return 2;
+        }
+        if (exercise_3 == 0){
+            return 3;
+        }
+        if (exercise_4 == 0){
+            return 4;
+        }
+        if (exercise_5 == 0){
+            return 5;
+        }
+        if (exercise_6 == 0){
+            return 6;
+        }
+        return -1;
+    }
+    public String getTypeOfId (int current_exercise) {
+        if (current_exercise == 1) {
+            return exercise_1_type;
+        }
+        if (current_exercise == 2) {
+            return exercise_2_type;
+        }
+        if (current_exercise == 3) {
+            return exercise_3_type;
+        }
+        if (current_exercise == 4) {
+            return exercise_4_type;
+        }
+        if (current_exercise == 5) {
+            return exercise_5_type;
+        }
+        if (current_exercise == 6) {
+            return exercise_6_type;
+        }
+        return "Wrong number!";
+    }
+    public int getParamOfId (int current_exercise) {
+        if (current_exercise == 1) {
+            return exercise_1_param;
+        }
+        if (current_exercise == 2) {
+            return exercise_2_param;
+        }
+        if (current_exercise == 3) {
+            return exercise_3_param;
+        }
+        if (current_exercise == 4) {
+            return exercise_4_param;
+        }
+        if (current_exercise == 5) {
+            return exercise_5_param;
+        }
+        if (current_exercise == 6) {
+            return exercise_6_param;
+        }
+        return -1;
+    }
+    public int getExerciseIdOfId (int current_exercise) {
+        if (current_exercise == 1) {
+            return exercise_id_1;
+        }
+        if (current_exercise == 2) {
+            return exercise_id_2;
+        }
+        if (current_exercise == 3) {
+            return exercise_id_3;
+        }
+        if (current_exercise == 4) {
+            return exercise_id_4;
+        }
+        if (current_exercise == 5) {
+            return exercise_id_5;
+        }
+        if (current_exercise == 6) {
+            return exercise_id_6;
+        }
+        return -1;
+    }
 }

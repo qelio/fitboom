@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
+            android:layout_weight="0.2"
             android:layout_height="match_parent" >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -534,12 +535,207 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.2"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/start_trenning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary_color"
+                android:text="Старт!" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:visibility="gone"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:indeterminateDrawable="@drawable/spinner_progress"
+            android:indeterminateOnly="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekend_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="8pt"
+            android:text="Вашему телу и мышцам нужно отдохнуть!\nДо встречи завтра!" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/start_trenning_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:visibility="visible"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/status_bar_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/status_bar_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/status_bar_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/status_bar_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/status_bar_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/status_bar_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/status_bar_false"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.8"
+                android:src="@drawable/current_exercise_people" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/current_exercise_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Вашему телу и мышцам нужно отдохнуть!\nДо встречи завтра!"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/current_exercise_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:padding="10dp"
+                    android:visibility="visible"
+                    android:background="@drawable/time_or_count_block"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/current_exercise_count_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="8pt"
+                        android:textStyle="bold"
+                        android:text="30 раз" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/current_exercise_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/current_exercise_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="30pt"
+                        android:text="00:45" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/exercise_next_exercise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary_color"
+                android:text="Готово!" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
