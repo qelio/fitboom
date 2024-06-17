@@ -739,6 +739,8 @@ public class WorkoutFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            linear_layout_days.setVisibility(View.GONE);
+            linear_layout_loading.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -823,6 +825,14 @@ public class WorkoutFragment extends Fragment {
                     Intent current_trenning_activity = new Intent(getActivity(), CurrentTrenningActivivty.class);
                     current_trenning_activity.putExtra("daily_trenning", dailyTrenning);
                     startActivityForResult(current_trenning_activity, 1);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            linear_layout_days.setVisibility(View.VISIBLE);
+                            linear_layout_loading.setVisibility(View.GONE);
+                        }
+                    }, 3000);
                 }
                 if (jsonObject1.getInt("code") == 101) {
                     Intent auth_activity = new Intent(getActivity(), SplashActivity.class);
@@ -915,7 +925,7 @@ public class WorkoutFragment extends Fragment {
             days_flag[i] = false;
         }
         for (int i = 1; i <= current_date.getDate(); i++) {
-            new GetDayInfo(getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), i, current_date.getMonth() + 1, current_date.getYear() + 1900, 1).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
+            new GetDayInfo(getContext(), settings_profile.getString("email", "-"), settings_profile.getString("password", "-"), i, current_date.getMonth() + 1, current_date.getYear() + 1900, current_trenning).execute("https://testmatica.ru/fitboom_api/daily_trenning.php");
         }
     }
 }

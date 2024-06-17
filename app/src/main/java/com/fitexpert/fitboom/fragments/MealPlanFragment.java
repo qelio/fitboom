@@ -189,12 +189,12 @@ public class MealPlanFragment extends Fragment {
                 new GetMealPlan(9, settings_profile.getString("email", "-"), settings_profile.getString("password", "-")).execute("https://testmatica.ru/fitboom_api/get_monthlyfood.php");
             }
         });
-        days[1].setOnClickListener(new View.OnClickListener() {
+        days[21].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Animation anim = AnimationUtils.loadAnimation(v.getContext(), R.anim.alpha);
                 v.startAnimation(anim);
-                new GetMealPlan(1, settings_profile.getString("email", "-"), settings_profile.getString("password", "-")).execute("https://testmatica.ru/fitboom_api/get_monthlyfood.php");
+                new GetMealPlan(21, settings_profile.getString("email", "-"), settings_profile.getString("password", "-")).execute("https://testmatica.ru/fitboom_api/get_monthlyfood.php");
             }
         });
         days[10].setOnClickListener(new View.OnClickListener() {
