@@ -6,7 +6,7 @@ public class DailyExercise {
 
     public DailyExercise() {
     }
-
+    // This is constructor
     public DailyExercise(String title, String description, String type, int param) {
         this.title = title;
         this.description = description;
